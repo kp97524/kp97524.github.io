@@ -80,7 +80,7 @@ The baseline model implementation will give us the required metrics to begin our
 *Table 1: Results of Evaluation*
 
 
-![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png) 
+![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true) 
 :--:
 *Fig 2: Sample predictions from images of DAVIS-2016*
 
