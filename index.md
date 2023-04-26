@@ -49,9 +49,9 @@ Alternatively, we implemented the most implemented state of the art model UNET [
 
 The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to convert the trained machine learning model into hardware design that could be implemented on FPGA. The HLS model plot is described in Fig 1. The next step is to modify its architecture as necessary so that it is suitable for FPGA implementation. Since FPGA devices have limited resources compared to traditional computing devices, it may be necessary to optimize the architecture of the model to reduce resource utilization and ensure real-time performance. The optimizations of the model like pruning that is used to reduce the complexity and size of the model are still work in progress. The results described in the Evaluation section are the results of a non-optimized model. After optimizing the model, this model would be implemented on FPGA.
 
-![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) 
+->![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) <-
 <br>
-*Fig 1: HLS Model Plot After Conversion*
+->*Fig 1: HLS Model Plot After Conversion*<-
 
 ### SUB HEADING 1
 
@@ -82,7 +82,7 @@ The baseline model implementation will give us the required metrics to begin our
 
 ![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true) 
 <br>
-*Fig 2: Sample predictions from images of DAVIS-2016*
+->*Fig 2: Sample predictions from images of DAVIS-2016*<-
 
 1.  This is an ordered list following a header.
 2.  This is an ordered list following a header.
