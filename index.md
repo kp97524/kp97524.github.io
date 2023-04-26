@@ -49,6 +49,9 @@ Alternatively, we implemented the most implemented state of the art model UNET [
 
 The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to convert the trained machine learning model into hardware design that could be implemented on FPGA. The HLS model plot is described in Fig 1. The next step is to modify its architecture as necessary so that it is suitable for FPGA implementation. Since FPGA devices have limited resources compared to traditional computing devices, it may be necessary to optimize the architecture of the model to reduce resource utilization and ensure real-time performance. The optimizations of the model like pruning that is used to reduce the complexity and size of the model are still work in progress. The results described in the Evaluation section are the results of a non-optimized model. After optimizing the model, this model would be implemented on FPGA.
 
+![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png) 
+:--:
+*Fig 1: HLS Model Plot After Conversion*
 
 ### SUB HEADING 1
 
@@ -68,6 +71,18 @@ The Tensorflow U-Net model was modified as stated above and this model was used 
 
 The baseline model implementation will give us the required metrics to begin our development for optimization. We have considered both software/task performance metrics and computer resource performance metrics for our study. For task performance we shall adopt metrics such as Accuracy, IoU (Intersection over Union) and F1 score. For FPGA implementation, the model was first compiled into a Vivado project using hls4ml by setting the current FPGA to Xilinx xcu250-figd2104-2L-e for virtual simulation. Later, it was synthesized and simulated using Vivado high level synthesis extension (VIVADO HLS) which shall deliver us the usage metrics such as latency, DSP, LUT etc. We believe that the two metrics will present themselves as a trade-off against one another.
 
+| Test Metrics        | Value      |
+|:-------------|:------------------|
+| Accuracy           | 0.9856 |
+| IoU Coefficient | 0.9669   |
+| Jaccard Index           | 0.9667  |
+
+*Table 1: Results of Evaluation*
+
+
+![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png) 
+:--:
+*Fig 2: Sample predictions from images of DAVIS-2016*
 
 1.  This is an ordered list following a header.
 2.  This is an ordered list following a header.
@@ -75,12 +90,10 @@ The baseline model implementation will give us the required metrics to begin our
 
 ## CONCLUSION
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+
+
+
+
 
 ## RESOURCES
 
@@ -134,14 +147,6 @@ Proceedings, Part XXVIII (pp. 640-658). Cham: Springer Nature Switzerland.
   - level 2 item
   - level 2 item
 - level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
 
 
 ### Definition lists can be used with HTML syntax.
