@@ -22,7 +22,7 @@ In this project, we plan to perform the task of image analysis from video frames
 
 ## PROPOSED WORK
 
-->![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png)?raw=true)
+->![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
 
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. 
