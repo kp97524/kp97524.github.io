@@ -24,7 +24,7 @@ In this project, we plan to perform the task of image analysis from video frames
 ## PROPOSED WORK
 
 <p align="center">
- <img width="700" height="500" src="https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true">
 <br>
     <em>Fig 1: Proposed Solution</em>
 </p>
