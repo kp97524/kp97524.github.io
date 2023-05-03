@@ -32,10 +32,7 @@ In this project, we plan to perform the task of image analysis from video frames
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. 
 The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
-Alternatively, we implemented the most implemented state of the art model UNET [11] for the task of visual object segmentation. Since the model was lighter in comparison with the other state of the art models, we were able to train the model with our personal compute resources over selected vehicle specific classes from DAVIS 2016 class. Additionally, due to the nascent state of the research in FPGA implementation of ML models, not all the layers are available in the code infrastructure for conversion including Conv2DTranspose. To tackle this issue we have replaced it with a combination of Upsampling 2D and Conv2D layers in the architecture which also proves to be more memory-efficient than using a Conv2D transpose layer. The Conv2D transpose layer requires more memory because it needs to compute a dense matrix multiplication, while UpSampling followed by a Conv2D layer only requires computing a sparse matrix multiplication. For training we used 50 epoch cycles with a total dataset of size 400 car images as seen on the road. These images were split into training and test datasets with a ratio of 9:1 respectively. 
-The hls4ml (High-Level Synthesis for Machine Learning) library was used to convert the trained machine learning model into hardware design that could be implemented on FPGA.
-The next step is to modify its architecture as necessary so that it is suitable for FPGA implementation. Since FPGA devices have limited resources compared to traditional computing devices, it may be necessary to optimize the architecture of the model to reduce resource utilization and ensure real-time performance. The optimizations of the model like pruning that is used to reduce the complexity and size of the model are still work in progress. The results described in the Evaluation section are the results of a non-optimized model. After optimizing the model, this model would be implemented on FPGA. 
-
+Alternatively, we implemented the most implemented state of the art model UNET [11] for the task of visual object segmentation. Since the model was lighter in comparison with the other state of the art models, we were able to train the model with our personal compute resources over selected vehicle specific classes from DAVIS 2016 class.
 
 ## RELATED WORK
 
@@ -62,20 +59,17 @@ The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to 
 
 ## IMPLEMENTATION CHALLENGES
 
-The unrolling limit in VIVADO is set to 4096 by default. Unrolling limit refers to the maximum number of iterations that can be unrolled in a loop.
-Increasing the unrolling limit would increase the size of the circuit and the memory required to synthesize.
-This would lead to longer synthesis times and higher resource utilization.
-Due to the default unrolling limit, the state-of-the-art models like U-Net and X-Mem couldn’t be simulated on FPGA in Vivado.
+The unrolling limit in VIVADO was set to 4096 by default. Unrolling limit refers to the maximum number of iterations that can be unrolled in a loop. Increasing the unrolling limit would increase the size of the circuit and the memory required to synthesize. This would lead to longer synthesis times and higher resource utilization. Due to the default unrolling limit, the state-of-the-art models like U-Net and X-Mem couldn’t be simulated on FPGA in Vivado.
+To overcome this limitation, several techniques have been proposed to reduce the unrolling limit, such as loop pipelining, loop flattening, and loop tiling. These techniques can optimize the design by reducing the number of iterations that need to be unrolled while still maintaining the overall performance. Furthermore, new hardware architectures have been designed specifically for deep learning models, such as the Field-Programmable Neural Array (FPNA), which can efficiently execute convolutional neural networks (CNNs) with limited resources. As FPGA technology continues to evolve, it is likely that we will see further advancements in the implementation of deep learning models on FPGAs.
 
 
 ## MODEL OPTIMIZATION
 
-The U-NET model with 450,000 parameters achieved the best results in terms of accuracy, jaccard index and mIoU score.
-Due to its, complexity and size it was not feasible for implementation in FPGA.
-So, we tried to optimize the model by reducing the number of parameters by controlling filter size and number of layers.
-The U-NET model parameters were reduced in steps from 450,000 to 7,000
-Due to this, the accuracy, jaccard index and mIoU scores were gradually reduced. Can we do better?
+The U-NET model is a popular architecture for image segmentation tasks in computer vision. However, due to its large size and complexity, it is not always feasible for implementation on hardware devices such as FPGAs. One approach to address this issue is to optimize the model by reducing the number of parameters while maintaining its performance. One common technique is to control the filter size and number of layers. In the case of the U-NET model with 450,000 parameters, it achieved the best results in terms of accuracy, jaccard index, and mIoU score. However, its size made it unsuitable for implementation on an FPGA. Therefore, the model was optimized by gradually reducing its parameters in steps, from 450,000 to 7,000.
 
+As the parameters were reduced, the accuracy, jaccard index, and mIoU scores were also gradually reduced. This shows that there is a trade-off between model size and performance. However, it is important to note that further optimization can be done to achieve better results. One approach could be to explore other optimization techniques such as pruning, quantization, or knowledge distillation. These techniques aim to reduce the number of parameters or computations required by the model without compromising its performance. Additionally, one could also consider fine-tuning the model on a smaller dataset or using transfer learning to leverage pre-trained models.
+
+Overall, optimizing the U-NET model for implementation on hardware devices requires a careful balance between model size and performance. By exploring various optimization techniques and fine-tuning strategies, we can achieve better results and make these models more accessible for real-time applications.
 
 
 ## KNOWLEDGE DISTILLATION
