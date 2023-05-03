@@ -14,6 +14,12 @@ There should be whitespace between paragraphs. We recommend including a README, 
 
 Computer Vision is used in  various domains like agriculture, automation systems,  autonomous vehicles, robots, security etc.Tasks like object detection and recognition in CV use ML models which are typically intricate and require significant computing power. Some of these applications which were traditionally cloud based, are now moving to edge computing due to benefits like low power consumption, less latency and better security.Our task is focussed on FPGA simulation of models used for object segmentation by analysis of images from video frames taken from various input sources.
 
+![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+<br>
+*Semantic segmentation in Agriculture*
+![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+<br>
+*Semantic segmentation in Vehicle Automation*
 
 ## PROBLEM STATEMENT
 Using video object segmentation, we can automate tasks which would otherwise require tedious manual effort. Like in the case of surveillance videos, it can be used to alert security personnel to potential threats or suspicious activities in such use cases performing visual object segmentation on cloud adds latency, which is not a viable option. 
@@ -22,8 +28,9 @@ In this project, we plan to perform the task of image analysis from video frames
 
 ## PROPOSED WORK
 
-->![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
-
+![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+<br>
+*Fig 1: Proposed Solution*
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. 
 The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
@@ -63,9 +70,9 @@ Alternatively, we implemented the most implemented state of the art model UNET [
 
 The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to convert the trained machine learning model into hardware design that could be implemented on FPGA. The HLS model plot is described in Fig 1. The next step is to modify its architecture as necessary so that it is suitable for FPGA implementation. Since FPGA devices have limited resources compared to traditional computing devices, it may be necessary to optimize the architecture of the model to reduce resource utilization and ensure real-time performance. The optimizations of the model like pruning that is used to reduce the complexity and size of the model are still work in progress. The results described in the Evaluation section are the results of a non-optimized model. After optimizing the model, this model would be implemented on FPGA.
 
-->![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) <-
+![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) 
 <br>
-->*Fig 1: HLS Model Plot After Conversion*<-
+*Fig 1: HLS Model Plot After Conversion*
 
 ### IMPLEMENTATION CHALLENGES
 
@@ -89,19 +96,26 @@ Due to this, the accuracy, jaccard index and mIoU scores were gradually reduced.
 
 
 ### KNOWLEDGE DISTILLATION
-The transfer of knowledge from a large, complex model (teacher model) to a smaller model(student model).
-The goal is to improve the performance of the smaller model by leveraging the knowledge of the larger model. 
-KD_450k is the teacher model and 21k_network is the student model (KD_450k-21k_network) 
-Knowledge distillation also drastically reduced the power consumption from 1359 uJ to 306 uJ
+Knowledge distillation is a technique in machine learning where a smaller, simpler model (known as the student model) is trained to mimic the behavior of a larger, more complex model (known as the teacher model). The goal is to transfer the knowledge and expertise of the teacher model to the student model, allowing the student model to perform better on a given task while requiring fewer computational resources.
+
+The teacher model is typically pre-trained on a large dataset and has a high level of accuracy, but can be computationally expensive to run. The student model, on the other hand, is designed to be lightweight and computationally efficient, making it suitable for deployment on low-power devices or in resource-constrained environments.During the training process, the student model is trained to predict the same outputs as the teacher model, while also being encouraged to learn from its own mistakes. This is done by minimizing a loss function that takes into account both the teacher's predictions and the student's own predictions.
+
+Knowledge distillation has been shown to be effective in a wide range of applications, including image recognition, natural language processing, and speech recognition, among others. It can also be used to improve the performance of existing models or to train new models from scratch.
+
+![KD](https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true)
+<br>
+*Fig 1: Knowledge Distillation*
 
 
 ### ADDITIONAL MODEL OPTIMIZATIONS
 
-PRUNING is a technique used to reduce the size of a deep neural network by removing unnecessary connections or neurons. It helps to reduce number of parameters and hence computation.
+Pruning is an optimization technique used to reduce the computational complexity and memory footprint of deep neural networks by removing unnecessary connections or neurons. This is important for applications where the model needs to run on resource-limited devices such as mobile phones or embedded systems. There are several approaches to pruning in computer vision, such as weight pruning, structured pruning, and channel pruning. Weight pruning involves removing small-weight connections from the network, while structured pruning removes entire filters or layers from the network. Channel pruning, on the other hand, removes entire channels of a convolutional layer.
 
-QUANTIZATION is a technique used to reduce the precision of weights and activations in a deep neural network. This aims at reducing the number of bits used to represent the weights and activations.
+Pruning can be done during training or after training, and can be combined with other optimization techniques such as quantization and compression to further improve the efficiency of the model. However, the challenge with pruning is to maintain high accuracy while reducing the size of the model, as pruning can lead to a loss of important information and impact the performance of the model.
 
-Quantization significantly reduces the memory usage and improves the computational efficiency. Our models are currently use a 16 bit quantization factor while converting to FPGA project/model.
+Quantization is another optimization technique that is used in computer vision. The idea behind quantization is to represent the weights and activations of the network with lower precision numbers, typically 8-bit or even lower, instead of the standard 32-bit floating-point numbers. This technique can significantly reduce the memory requirements of the model, enabling it to be deployed on devices with limited memory capacity, such as embedded systems, and FPGA devices. It also allows for faster computations by reducing the number of operations needed to perform each computation. Our models are currently using a 16 bit quantization factor while converting to FPGA project/model.
+However, quantization can also impact the accuracy of the model, as the lower precision numbers can result in a loss of information and reduced precision in computations. Therefore, it is important to carefully balance the trade-off between accuracy and efficiency when applying quantization techniques in computer vision.
+
 
 
 
@@ -128,7 +142,7 @@ The baseline model implementation will give us the required metrics to begin our
 
 ![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true) 
 <br>
-->*Fig 2: Sample predictions from images of DAVIS-2016*<-
+*Fig 2: Sample predictions from images of DAVIS-2016*
 
 1.  This is an ordered list following a header.
 2.  This is an ordered list following a header.
