@@ -3,10 +3,10 @@
 
 Computer Vision is used in  various domains like agriculture, automation systems,  autonomous vehicles, robots, security etc.Tasks like object detection and recognition in CV use ML models which are typically intricate and require significant computing power. Some of these applications which were traditionally cloud based, are now moving to edge computing due to benefits like low power consumption, less latency and better security.Our task is focussed on FPGA simulation of models used for object segmentation by analysis of images from video frames taken from various input sources.
 
-![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/intro1.png?raw=true)
 <br>
 *Semantic segmentation in Agriculture*
-![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/intro2.png?raw=true)
 <br>
 *Semantic segmentation in Vehicle Automation*
 
@@ -127,7 +127,9 @@ We plan to work on the additional optimization techniques like Auto Quantization
 
 ## RESOURCES
 
+[Presentation Slides](https://kp97524.github.io/presentation.pdf) 
 
+[Presentation Video](https://kp97524.github.io/presentation.pdf) 
 
 
 ## REFERENCES
