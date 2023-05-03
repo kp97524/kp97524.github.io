@@ -3,12 +3,18 @@
 
 Computer Vision is used in  various domains like agriculture, automation systems,  autonomous vehicles, robots, security etc.Tasks like object detection and recognition in CV use ML models which are typically intricate and require significant computing power. Some of these applications which were traditionally cloud based, are now moving to edge computing due to benefits like low power consumption, less latency and better security.Our task is focussed on FPGA simulation of models used for object segmentation by analysis of images from video frames taken from various input sources.
 
-![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/intro1.png?raw=true)
+<p align="center">
+ <img width="460" height="300" src="https://github.com/kp97524/kp97524.github.io/blob/master/intro1.png?raw=true">
 <br>
-*Semantic segmentation in Agriculture*
-![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/intro2.png?raw=true)
-<br>
-*Semantic segmentation in Vehicle Automation*
+    <em>Semantic segmentation in Agriculture</em>
+</p>
+
+
+<p align="center">
+<img width="460" height="300" src="https://github.com/kp97524/kp97524.github.io/blob/master/intro2.png?raw=true">
+  <br>
+    <em>Semantic segmentation in Vehicle Automation</em>
+</p>
 
 ## PROBLEM STATEMENT
 Using video object segmentation, we can automate tasks which would otherwise require tedious manual effort. Like in the case of surveillance videos, it can be used to alert security personnel to potential threats or suspicious activities in such use cases performing visual object segmentation on cloud adds latency, which is not a viable option. 
@@ -17,9 +23,12 @@ In this project, we plan to perform the task of image analysis from video frames
 
 ## PROPOSED WORK
 
-![Proposed Solution](https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true)
+<p align="center">
+ <img width="700" height="500" src="https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true">
 <br>
-*Fig 1: Proposed Solution*
+    <em>Fig 1: Proposed Solution</em>
+</p>
+
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. 
 The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
@@ -44,9 +53,12 @@ Alternatively, we implemented the most implemented state of the art model UNET [
 
 The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to convert the trained machine learning model into hardware design that could be implemented on FPGA. The HLS model plot is described in Fig 1. The next step is to modify its architecture as necessary so that it is suitable for FPGA implementation. Since FPGA devices have limited resources compared to traditional computing devices, it may be necessary to optimize the architecture of the model to reduce resource utilization and ensure real-time performance. The optimizations of the model like pruning that is used to reduce the complexity and size of the model are still work in progress. The results described in the Evaluation section are the results of a non-optimized model. After optimizing the model, this model would be implemented on FPGA.
 
-![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) 
+<p align="center">
+ <img width="460" height="300" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true">
 <br>
-*Fig 2: HLS Model Plot After Conversion*
+    <em>Fig 2: HLS Model Plot After Conversion</em>
+</p>
+
 
 ### IMPLEMENTATION CHALLENGES
 
@@ -73,9 +85,11 @@ The teacher model is typically pre-trained on a large dataset and has a high lev
 
 Knowledge distillation has been shown to be effective in a wide range of applications, including image recognition, natural language processing, and speech recognition, among others. It can also be used to improve the performance of existing models or to train new models from scratch.
 
-![KD](https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true)
+<p align="center">
+ <img width="700" height="500" src="https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true">
 <br>
-*Fig 3: Knowledge Distillation*
+    <em>Fig 3: Knowledge Distillation</em>
+</p>
 
 
 ### ADDITIONAL MODEL OPTIMIZATIONS
@@ -102,17 +116,20 @@ The baseline model implementation will give us the required metrics to begin our
 
 *Table 1: Results of Evaluation*
 
-
-![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true) 
+<p align="center">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true">
 <br>
-*Fig 4: Sample predictions from images of DAVIS-2016 with 450k parameters model*
+    <em>Fig 4: Sample predictions from images of DAVIS-2016 with 450k parameters model</em>
+</p>
 
 
-![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r1.png?raw=true) 
-![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r2.png?raw=true) 
-![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r3.png?raw=true) 
+<p align="center">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/r1.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/r2.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/r3.png?raw=true">
 <br>
-*Fig 5: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation*
+    <em>Fig 5: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation</em>
+</p>
 
 
 ## CONCLUSION & FUTURE WORK
@@ -133,71 +150,25 @@ We plan to work on the additional optimization techniques like Auto Quantization
 
 ## REFERENCES
 
-1. Liu, Y., Yu, R., Yin, F., Zhao, X., Zhao, W., Xia, W. and Yang, Y., 2022, October.
-“Learning quality-aware dynamic memory for video object segmentation.” In
-Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October
-23–27, 2022, Proceedings, Part XXIX (pp. 468-486). Cham: Springer Nature
-Switzerland.
-2. Yang, Z., Miao, J., Wang, X., Wei, Y. and Yang, Y., 2022. “Associating objects with
-scalable transformers for video object segmentation.” arXiv preprint
-arXiv:2203.11442.
-3. Cheng, H.K. and Schwing, A.G., 2022, October. “XMem: Long-Term Video Object
-Segmentation with an Atkinson-Shiffrin Memory Model.” In Computer Vision–
-ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022,
-Proceedings, Part XXVIII (pp. 640-658). Cham: Springer Nature Switzerland.
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+[1]. Liu, Y., Yu, R., Yin, F., Zhao, X., Zhao, W., Xia, W. and Yang, Y., 2022, October. “Learning quality-aware dynamic memory for video object segmentation.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXIX (pp. 468-486). Cham: Springer Nature Switzerland.
+<br>
+[2]. Yang, Z., Miao, J., Wang, X., Wei, Y. and Yang, Y., 2022. “Associating objects with scalable transformers for video object segmentation.” arXiv preprint arXiv:2203.11442.
+<br>
+[3]. Cheng, H.K. and Schwing, A.G., 2022, October. “XMem: Long-Term Video Object Segmentation with an Atkinson-Shiffrin Memory Model.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXVIII (pp. 640-658). Cham: Springer Nature Switzerland.
+<br>
+[4]. Elumalai, Naveen, FPGA Implementation for Real Time Video Segmentation Using Gaussian Mixture Model (March 9, 2015). Available at SSRN: https://ssrn.com/abstract=2575998
+<br>
+[5]. Xiaohao Xu, Jinglu Wang, Xiang Ming, and Yan Lu. 2022. Towards Robust Video Object Segmentation with Adaptive Object Calibration. In Proceedings of the 30th ACM International Conference on Multimedia (MM '22). Association for Computing Machinery, New York, NY, USA, 2709–2718. https://doi.org/10.1145/3503161.3547824
+<br>
+[6]. Ghielmetti, Nicolò, Vladimir Loncar, Maurizio Pierini, Marcel Roed, Sioni Summers, Thea Aarrestad, Christoffer Petersson et al. "Real-time semantic segmentation on FPGAs for autonomous vehicles with hls4ml." Machine Learning: Science and Technology 3, no. 4 (2022): 045011.
+<br>
+[7]. El Hajjouji, Ismaïl & Mars, Salah & Asrih, Zakariae & El Mourabit, A.. (2019). A novel FPGA implementation of Hough Transform for straight lane detection. Engineering Science and Technology, an International Journal. 23. 10.1016/j.jestch.2019.05.008.
+<br>
+[8]. Q. Xu, S. Varadarajan, C. Chakrabarti, and L. J. Karam, “A Distributed Canny Edge Detector: Algorithm and FPGA Implementation,” IEEE Transactions on Image Processing, vol. 23, no. 7, pp. 2944–2960, Jul. 2014, doi: 10.1109/tip.2014.2311656
+<br>
+[9]. A. Ahamad, C. -C. Sun, H. M. Nguyen and W. -K. Kuo, "Q-SegNet: Quantized deep convolutional neural network for image segmentation on FPGA," 2021 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS), Hualien City, Taiwan, 2021, pp. 1-2, doi: 10.1109/ISPACS51563.2021.9650929.
+<br>
+[10]. HLS4ML Software: https://fastmachinelearning.org/hls4ml
+<br>
+[11]. Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." In Medical Image Computing and Computer-Assisted Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18, pp. 234-241. Springer International Publishing, 2015.
+<br>
