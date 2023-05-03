@@ -1,14 +1,3 @@
----
-layout: default
----
-
-
-
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 ## INTRODUCTION
 
@@ -49,21 +38,6 @@ Associating Objects with Scalable Transformers approach was used to match and se
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
 ## IMPLEMENTATION
 
 Alternatively, we implemented the most implemented state of the art model UNET [11] for the task of visual object segmentation. Since the model was lighter in comparison with the other state of the art models, we were able to train the model with our personal compute resources over selected vehicle specific classes from DAVIS 2016 class. Additionally, due to the nascent state of the research in FPGA implementation of ML models, not all the layers are available in the code infrastructure for conversion including Conv2DTranspose. To tackle this issue we have replaced it with a combination of Upsampling 2D and Conv2D layers in the architecture which also proves to be more memory-efficient than using a Conv2D transpose layer. The Conv2D transpose layer requires more memory because it needs to compute a dense matrix multiplication, while UpSampling followed by a Conv2D layer only requires computing a sparse matrix multiplication. For training we used 50 epoch cycles with a total dataset of size 400 car images as seen on the road. These images were split into training and test datasets with a ratio of 9:1 respectively.
@@ -72,7 +46,7 @@ The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to 
 
 ![HLS Model Plot After Conversion](https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true) 
 <br>
-*Fig 1: HLS Model Plot After Conversion*
+*Fig 2: HLS Model Plot After Conversion*
 
 ### IMPLEMENTATION CHALLENGES
 
@@ -81,9 +55,6 @@ Increasing the unrolling limit would increase the size of the circuit and the me
 This would lead to longer synthesis times and higher resource utilization.
 Due to the default unrolling limit, the state-of-the-art models like U-Net and X-Mem couldn’t be simulated on FPGA in Vivado.
 
-
-
-**********
 
 ### MODEL OPTIMIZATION
 
@@ -104,7 +75,7 @@ Knowledge distillation has been shown to be effective in a wide range of applica
 
 ![KD](https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true)
 <br>
-*Fig 1: Knowledge Distillation*
+*Fig 3: Knowledge Distillation*
 
 
 ### ADDITIONAL MODEL OPTIMIZATIONS
@@ -116,14 +87,6 @@ Pruning can be done during training or after training, and can be combined with 
 Quantization is another optimization technique that is used in computer vision. The idea behind quantization is to represent the weights and activations of the network with lower precision numbers, typically 8-bit or even lower, instead of the standard 32-bit floating-point numbers. This technique can significantly reduce the memory requirements of the model, enabling it to be deployed on devices with limited memory capacity, such as embedded systems, and FPGA devices. It also allows for faster computations by reducing the number of operations needed to perform each computation. Our models are currently using a 16 bit quantization factor while converting to FPGA project/model.
 However, quantization can also impact the accuracy of the model, as the lower precision numbers can result in a loss of information and reduced precision in computations. Therefore, it is important to carefully balance the trade-off between accuracy and efficiency when applying quantization techniques in computer vision.
 
-
-
-
-************
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
 
 ## RESULTS & EVALUATION
 
@@ -142,13 +105,14 @@ The baseline model implementation will give us the required metrics to begin our
 
 ![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true) 
 <br>
-*Fig 2: Sample predictions from images of DAVIS-2016*
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+*Fig 4: Sample predictions from images of DAVIS-2016 with 450k parameters model*
 
 
+![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r1.png?raw=true) 
+![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r2.png?raw=true) 
+![Sample predictions from images of DAVIS-2016](https://github.com/kp97524/kp97524.github.io/blob/master/r3.png?raw=true) 
+<br>
+*Fig 5: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation*
 
 
 ## CONCLUSION & FUTURE WORK
@@ -163,7 +127,8 @@ We plan to work on the additional optimization techniques like Auto Quantization
 
 ## RESOURCES
 
--- ADD LINKS TO PROJECT PROPOSAL AND MID TERM REPORT
+
+
 
 ## REFERENCES
 
