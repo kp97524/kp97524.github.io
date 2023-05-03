@@ -86,7 +86,7 @@ The teacher model is typically pre-trained on a large dataset and has a high lev
 Knowledge distillation has been shown to be effective in a wide range of applications, including image recognition, natural language processing, and speech recognition, among others. It can also be used to improve the performance of existing models or to train new models from scratch.
 
 <p align="center">
- <img width="700" height="500" src="https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true">
 <br>
     <em>Fig 3: Knowledge Distillation</em>
 </p>
