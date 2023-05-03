@@ -127,10 +127,9 @@ We plan to work on the additional optimization techniques like Auto Quantization
 
 ## RESOURCES
 
-[Presentation Slides](https://kp97524.github.io/presentation.pdf) 
+[Presentation Slides](https://kp97524.github.io/presentation.pdf)
 
-[Presentation Video](https://kp97524.github.io/presentation.pdf) 
-
+[![Presentation Video](https://github.com/kp97524/kp97524.github.io/blob/master/front.png?raw=true)](https://user-images.githubusercontent.com/51261477/236054773-15cde6f2-fb2a-4c4d-8da5-79d67536a10b.mp4)
 
 ## REFERENCES
 
