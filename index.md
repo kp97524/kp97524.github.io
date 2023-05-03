@@ -150,25 +150,15 @@ We plan to work on the additional optimization techniques like Auto Quantization
 
 ## REFERENCES
 
-[1]. Liu, Y., Yu, R., Yin, F., Zhao, X., Zhao, W., Xia, W. and Yang, Y., 2022, October. “Learning quality-aware dynamic memory for video object segmentation.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXIX (pp. 468-486). Cham: Springer Nature Switzerland.
-<br>
-[2]. Yang, Z., Miao, J., Wang, X., Wei, Y. and Yang, Y., 2022. “Associating objects with scalable transformers for video object segmentation.” arXiv preprint arXiv:2203.11442.
-<br>
-[3]. Cheng, H.K. and Schwing, A.G., 2022, October. “XMem: Long-Term Video Object Segmentation with an Atkinson-Shiffrin Memory Model.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXVIII (pp. 640-658). Cham: Springer Nature Switzerland.
-<br>
-[4]. Elumalai, Naveen, FPGA Implementation for Real Time Video Segmentation Using Gaussian Mixture Model (March 9, 2015). Available at SSRN: https://ssrn.com/abstract=2575998
-<br>
-[5]. Xiaohao Xu, Jinglu Wang, Xiang Ming, and Yan Lu. 2022. Towards Robust Video Object Segmentation with Adaptive Object Calibration. In Proceedings of the 30th ACM International Conference on Multimedia (MM '22). Association for Computing Machinery, New York, NY, USA, 2709–2718. https://doi.org/10.1145/3503161.3547824
-<br>
-[6]. Ghielmetti, Nicolò, Vladimir Loncar, Maurizio Pierini, Marcel Roed, Sioni Summers, Thea Aarrestad, Christoffer Petersson et al. "Real-time semantic segmentation on FPGAs for autonomous vehicles with hls4ml." Machine Learning: Science and Technology 3, no. 4 (2022): 045011.
-<br>
-[7]. El Hajjouji, Ismaïl & Mars, Salah & Asrih, Zakariae & El Mourabit, A.. (2019). A novel FPGA implementation of Hough Transform for straight lane detection. Engineering Science and Technology, an International Journal. 23. 10.1016/j.jestch.2019.05.008.
-<br>
-[8]. Q. Xu, S. Varadarajan, C. Chakrabarti, and L. J. Karam, “A Distributed Canny Edge Detector: Algorithm and FPGA Implementation,” IEEE Transactions on Image Processing, vol. 23, no. 7, pp. 2944–2960, Jul. 2014, doi: 10.1109/tip.2014.2311656
-<br>
-[9]. A. Ahamad, C. -C. Sun, H. M. Nguyen and W. -K. Kuo, "Q-SegNet: Quantized deep convolutional neural network for image segmentation on FPGA," 2021 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS), Hualien City, Taiwan, 2021, pp. 1-2, doi: 10.1109/ISPACS51563.2021.9650929.
-<br>
-[10]. HLS4ML Software: https://fastmachinelearning.org/hls4ml
-<br>
-[11]. Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." In Medical Image Computing and Computer-Assisted Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18, pp. 234-241. Springer International Publishing, 2015.
-<br>
+1. Liu, Y., Yu, R., Yin, F., Zhao, X., Zhao, W., Xia, W. and Yang, Y., 2022, October. “Learning quality-aware dynamic memory for video object segmentation.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXIX (pp. 468-486). Cham: Springer Nature Switzerland.
+2. Yang, Z., Miao, J., Wang, X., Wei, Y. and Yang, Y., 2022. “Associating objects with scalable transformers for video object segmentation.” arXiv preprint arXiv:2203.11442.
+3. Cheng, H.K. and Schwing, A.G., 2022, October. “XMem: Long-Term Video Object Segmentation with an Atkinson-Shiffrin Memory Model.” In Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXVIII (pp. 640-658). Cham: Springer Nature Switzerland.
+4. Elumalai, Naveen, FPGA Implementation for Real Time Video Segmentation Using Gaussian Mixture Model (March 9, 2015). Available at SSRN: https://ssrn.com/abstract=2575998
+5. Xiaohao Xu, Jinglu Wang, Xiang Ming, and Yan Lu. 2022. Towards Robust Video Object Segmentation with Adaptive Object Calibration. In Proceedings of the 30th ACM International Conference on Multimedia (MM '22). Association for Computing Machinery, New York, NY, USA, 2709–2718. https://doi.org/10.1145/3503161.3547824
+6. Ghielmetti, Nicolò, Vladimir Loncar, Maurizio Pierini, Marcel Roed, Sioni Summers, Thea Aarrestad, Christoffer Petersson et al. "Real-time semantic segmentation on FPGAs for autonomous vehicles with hls4ml." Machine Learning: Science and Technology 3, no. 4 (2022): 045011.
+7. El Hajjouji, Ismaïl & Mars, Salah & Asrih, Zakariae & El Mourabit, A.. (2019). A novel FPGA implementation of Hough Transform for straight lane detection. Engineering Science and Technology, an International Journal. 23. 10.1016/j.jestch.2019.05.008.
+8. Q. Xu, S. Varadarajan, C. Chakrabarti, and L. J. Karam, “A Distributed Canny Edge Detector: Algorithm and FPGA Implementation,” IEEE Transactions on Image Processing, vol. 23, no. 7, pp. 2944–2960, Jul. 2014, doi: 10.1109/tip.2014.2311656
+9. A. Ahamad, C. -C. Sun, H. M. Nguyen and W. -K. Kuo, "Q-SegNet: Quantized deep convolutional neural network for image segmentation on FPGA," 2021 International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS), Hualien City, Taiwan, 2021, pp. 1-2, doi: 10.1109/ISPACS51563.2021.9650929.
+10. HLS4ML Software: https://fastmachinelearning.org/hls4ml
+11. Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." In Medical Image Computing and Computer-Assisted Intervention–MICCAI 2015: 18th International Conference, Munich, Germany, October 5-9, 2015, Proceedings, Part III 18, pp. 234-241. Springer International Publishing, 2015.
+
