@@ -60,7 +60,7 @@ The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to 
 </p>
 
 
-### IMPLEMENTATION CHALLENGES
+## IMPLEMENTATION CHALLENGES
 
 The unrolling limit in VIVADO is set to 4096 by default. Unrolling limit refers to the maximum number of iterations that can be unrolled in a loop.
 Increasing the unrolling limit would increase the size of the circuit and the memory required to synthesize.
@@ -68,7 +68,7 @@ This would lead to longer synthesis times and higher resource utilization.
 Due to the default unrolling limit, the state-of-the-art models like U-Net and X-Mem couldn’t be simulated on FPGA in Vivado.
 
 
-### MODEL OPTIMIZATION
+## MODEL OPTIMIZATION
 
 The U-NET model with 450,000 parameters achieved the best results in terms of accuracy, jaccard index and mIoU score.
 Due to its, complexity and size it was not feasible for implementation in FPGA.
@@ -78,7 +78,7 @@ Due to this, the accuracy, jaccard index and mIoU scores were gradually reduced.
 
 
 
-### KNOWLEDGE DISTILLATION
+## KNOWLEDGE DISTILLATION
 Knowledge distillation is a technique in machine learning where a smaller, simpler model (known as the student model) is trained to mimic the behavior of a larger, more complex model (known as the teacher model). The goal is to transfer the knowledge and expertise of the teacher model to the student model, allowing the student model to perform better on a given task while requiring fewer computational resources.
 
 The teacher model is typically pre-trained on a large dataset and has a high level of accuracy, but can be computationally expensive to run. The student model, on the other hand, is designed to be lightweight and computationally efficient, making it suitable for deployment on low-power devices or in resource-constrained environments.During the training process, the student model is trained to predict the same outputs as the teacher model, while also being encouraged to learn from its own mistakes. This is done by minimizing a loss function that takes into account both the teacher's predictions and the student's own predictions.
@@ -92,7 +92,7 @@ Knowledge distillation has been shown to be effective in a wide range of applica
 </p>
 
 
-### ADDITIONAL MODEL OPTIMIZATIONS
+## ADDITIONAL MODEL OPTIMIZATIONS
 
 Pruning is an optimization technique used to reduce the computational complexity and memory footprint of deep neural networks by removing unnecessary connections or neurons. This is important for applications where the model needs to run on resource-limited devices such as mobile phones or embedded systems. There are several approaches to pruning in computer vision, such as weight pruning, structured pruning, and channel pruning. Weight pruning involves removing small-weight connections from the network, while structured pruning removes entire filters or layers from the network. Channel pruning, on the other hand, removes entire channels of a convolutional layer.
 
