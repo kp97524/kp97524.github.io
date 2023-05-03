@@ -67,11 +67,43 @@ The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to 
 <br>
 ->*Fig 1: HLS Model Plot After Conversion*<-
 
-### SUB HEADING 1
+### IMPLEMENTATION CHALLENGES
+
+The unrolling limit in VIVADO is set to 4096 by default. Unrolling limit refers to the maximum number of iterations that can be unrolled in a loop.
+Increasing the unrolling limit would increase the size of the circuit and the memory required to synthesize.
+This would lead to longer synthesis times and higher resource utilization.
+Due to the default unrolling limit, the state-of-the-art models like U-Net and X-Mem couldn’t be simulated on FPGA in Vivado.
+
+
 
 **********
 
-### SUB HEADING 2
+### MODEL OPTIMIZATION
+
+The U-NET model with 450,000 parameters achieved the best results in terms of accuracy, jaccard index and mIoU score.
+Due to its, complexity and size it was not feasible for implementation in FPGA.
+So, we tried to optimize the model by reducing the number of parameters by controlling filter size and number of layers.
+The U-NET model parameters were reduced in steps from 450,000 to 7,000
+Due to this, the accuracy, jaccard index and mIoU scores were gradually reduced. Can we do better?
+
+
+
+### KNOWLEDGE DISTILLATION
+The transfer of knowledge from a large, complex model (teacher model) to a smaller model(student model).
+The goal is to improve the performance of the smaller model by leveraging the knowledge of the larger model. 
+KD_450k is the teacher model and 21k_network is the student model (KD_450k-21k_network) 
+Knowledge distillation also drastically reduced the power consumption from 1359 uJ to 306 uJ
+
+
+### ADDITIONAL MODEL OPTIMIZATIONS
+
+PRUNING is a technique used to reduce the size of a deep neural network by removing unnecessary connections or neurons. It helps to reduce number of parameters and hence computation.
+
+QUANTIZATION is a technique used to reduce the precision of weights and activations in a deep neural network. This aims at reducing the number of bits used to represent the weights and activations.
+
+Quantization significantly reduces the memory usage and improves the computational efficiency. Our models are currently use a 16 bit quantization factor while converting to FPGA project/model.
+
+
 
 ************
 
@@ -102,9 +134,15 @@ The baseline model implementation will give us the required metrics to begin our
 2.  This is an ordered list following a header.
 3.  This is an ordered list following a header.
 
-## CONCLUSION
 
 
+
+## CONCLUSION & FUTURE WORK
+
+We have successfully implemented the KD_450k_21k model on an FPGA simulation using Vivado.
+We have observed that Knowledge distillation seems to be an effective way of reducing model complexity and  resource consumption for ML inference, which is a key factor for FPGA implementation.
+Hence, Knowledge distillation could be used to learn from more complex models like X-Mem.
+We plan to work on the additional optimization techniques like Auto Quantization and analyse their performance in future.
 
 
 
