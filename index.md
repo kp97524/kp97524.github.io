@@ -44,6 +44,11 @@ Associating Objects with Scalable Transformers approach was used to match and se
 
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
 
+<p align="center">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true">
+<br>
+    <em>Fig 1: Proposed Solution</em>
+</p>
 ## IMPLEMENTATION
 
 Alternatively, we implemented the most implemented state of the art model UNET [11] for the task of visual object segmentation. Since the model was lighter in comparison with the other state of the art models, we were able to train the model with our personal compute resources over selected vehicle specific classes from DAVIS 2016 class. Additionally, due to the nascent state of the research in FPGA implementation of ML models, not all the layers are available in the code infrastructure for conversion including Conv2DTranspose. To tackle this issue we have replaced it with a combination of Upsampling 2D and Conv2D layers in the architecture which also proves to be more memory-efficient than using a Conv2D transpose layer. The Conv2D transpose layer requires more memory because it needs to compute a dense matrix multiplication, while UpSampling followed by a Conv2D layer only requires computing a sparse matrix multiplication. For training we used 50 epoch cycles with a total dataset of size 400 car images as seen on the road. These images were split into training and test datasets with a ratio of 9:1 respectively.
@@ -102,7 +107,6 @@ The Tensorflow U-Net model was modified as stated above and this model was used 
 
 The baseline model implementation will give us the required metrics to begin our development for optimization. We have considered both software/task performance metrics and computer resource performance metrics for our study. For task performance we shall adopt metrics such as Accuracy, IoU (Intersection over Union) and F1 score. For FPGA implementation, the model was first compiled into a Vivado project using hls4ml by setting the current FPGA to Xilinx xcu250-figd2104-2L-e for virtual simulation. Later, it was synthesized and simulated using Vivado high level synthesis extension (VIVADO HLS) which shall deliver us the usage metrics such as latency, DSP, LUT etc. We believe that the two metrics will present themselves as a trade-off against one another.
 
-<p align="center">
 
 | Test Metrics        | Value      |
 |:-------------|:------------------|
@@ -111,13 +115,14 @@ The baseline model implementation will give us the required metrics to begin our
 | Jaccard Index           | 0.9667  |
 
 *Table 1: Results of Evaluation*
- </p>
+ 
 
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true">
 <br>
     <em>Fig 4: Sample predictions from images of DAVIS-2016 with 450k parameters model</em>
 </p>
+
 
 
 <p align="center">
@@ -130,12 +135,31 @@ The baseline model implementation will give us the required metrics to begin our
 
 <br>
 <br>
-<p align="center">
- <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_1.png?raw=true">
- <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_2.png?raw=true">
-<br>
-    <em>Fig 6: Model evaluation metrics</em>
-</p>
+
+
+| Model        | MIoU      |Accuracy       |Jaccard Index     |Energy Model
+|:-------------|:------------------|:------------------|:------------------|:------------------|
+| unet_lite - 450k           | 0.969 |0.988.  |0.969  |1359.74 uJ
+| unet_lite - 450k|	0.969	| 0.988| 	0.969|	1359.74 uJ																					
+| unet_lite - 110k	| 0.958	| 0.973	|0.951	| 3144 uJ																					
+| unet_lite - 30k|	0.905|	0.961|	0.903 |	239 uJ																					
+| unet_lite - 18k|	0.867|	0.946|	0.866|	215 uJ																					
+| unet_lite - 7k|	0.872|	0.959|	0.87|	62 uJ																					
+| KD_450k-21k_network|	0.959|	0.985|	0.959|	305.92 uJ																					
+| KD_AQ_Network|	0.959|	0.985|	0.959	|305.92 uJ																					
+| pruned_unet_lite - 18k|	0.837|	0.91|	0.833|	0.07 uJ																					
+
+*Table 2: Results of Model Evaluation*
+
+
+
+| Model        | BRAM      |LUT       |FF     |DSP
+|:-------------|:------------------|:------------------|:------------------|:------------------|																	
+| KD_450k-21k_network|	5122|	14998|	491374|	959521																					
+| KD_450k-12k_network|	4124|	10025|	347353|	663348																					
+| KD_450k-7k_network|	3748|	5119|	210505|	423232																					
+
+*Table 3: Results of Model Evaluation*
 
 
 
