@@ -45,7 +45,7 @@ Associating Objects with Scalable Transformers approach was used to match and se
 Since there are many different state-of-the-art models available for visual object segmentation, it is important to choose the one that is most suitable for the task at hand. The first step in this plan is to establish a baseline by implementing the most pragmatic state-of-the-art (SOA) model for visual object segmentation. This model will serve as the starting point for further development and optimization towards FPGA implementation. The implementation of the current state of the art models was not viable as the current code infrastructure for enabling the conversion of deep learning models for FPGA use have various limitations. Firstly, they do not work with models written as custom classes and the support for pytorch is limited to basic layers and networks only [10]. Hence, most of these models would have to be retrained in tensorflow requiring code conversion and heavy compute resources for model training. 
 
 <p align="center">
- <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/PROPOSED_SOLUTION.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/unet.jpg?raw=true">
 <br>
     <em>Fig 1: Proposed Solution</em>
 </p>
@@ -137,27 +137,27 @@ The baseline model implementation will give us the required metrics to begin our
 <br>
 
 
-| Model        | MIoU      |Accuracy       |Jaccard Index     |Energy Model
+| Model        | MIoU      |Accuracy       |Jaccard Index     |Energy Model  |
 |:-------------|:------------------|:------------------|:------------------|:------------------|
-| unet_lite - 450k           | 0.969 |0.988.  |0.969  |1359.74 uJ
-| unet_lite - 450k|	0.969	| 0.988| 	0.969|	1359.74 uJ																					
-| unet_lite - 110k	| 0.958	| 0.973	|0.951	| 3144 uJ																					
-| unet_lite - 30k|	0.905|	0.961|	0.903 |	239 uJ																					
-| unet_lite - 18k|	0.867|	0.946|	0.866|	215 uJ																					
-| unet_lite - 7k|	0.872|	0.959|	0.87|	62 uJ																					
-| KD_450k-21k_network|	0.959|	0.985|	0.959|	305.92 uJ																					
-| KD_AQ_Network|	0.959|	0.985|	0.959	|305.92 uJ																					
-| pruned_unet_lite - 18k|	0.837|	0.91|	0.833|	0.07 uJ																					
+| unet_lite - 450k           | 0.969 |0.988.  |0.969  |1359.74 uJ |
+| unet_lite - 450k|	0.969	| 0.988| 	0.969|	1359.74 uJ	|																				
+| unet_lite - 110k	| 0.958	| 0.973	|0.951	| 3144 uJ	|																	
+| unet_lite - 30k|	0.905|	0.961|	0.903 |	239 uJ	|															
+| unet_lite - 18k|	0.867|	0.946|	0.866|	215 uJ	|																		
+| unet_lite - 7k|	0.872|	0.959|	0.87|	62 uJ	|																				
+| KD_450k-21k_network|	0.959|	0.985|	0.959|	305.92 uJ |																					
+| KD_AQ_Network|	0.959|	0.985|	0.959	|305.92 uJ	|																				
+| pruned_unet_lite - 18k|	0.837|	0.91|	0.833|	0.07 uJ. |																					
 
 *Table 2: Results of Model Evaluation*
 
 
 
-| Model        | BRAM      |LUT       |FF     |DSP
+| Model        | BRAM      |LUT       |FF     |DSP    |
 |:-------------|:------------------|:------------------|:------------------|:------------------|																	
-| KD_450k-21k_network|	5122|	14998|	491374|	959521																					
-| KD_450k-12k_network|	4124|	10025|	347353|	663348																					
-| KD_450k-7k_network|	3748|	5119|	210505|	423232																					
+| KD_450k-21k_network|	5122|	14998|	491374|	959521		|																			
+| KD_450k-12k_network|	4124|	10025|	347353|	663348		|																		
+| KD_450k-7k_network|	3748|	5119|	210505|	423232		|																		
 
 *Table 3: Results of Model Evaluation*
 
