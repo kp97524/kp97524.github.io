@@ -126,6 +126,15 @@ The baseline model implementation will give us the required metrics to begin our
 </p>
 
 
+<p align="center">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_1.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_1.png?raw=true">
+<br>
+    <em>Fig 6: Model evaluation metrics</em>
+</p>
+
+
+
 ## CONCLUSION & FUTURE WORK
 
 We have successfully implemented the KD_450k_21k model on an FPGA simulation using Vivado.
