@@ -117,6 +117,9 @@ The baseline model implementation will give us the required metrics to begin our
 *Table 1: Results of Evaluation*
  
 
+<br>
+<br>
+
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true">
 <br>
@@ -152,6 +155,9 @@ The baseline model implementation will give us the required metrics to begin our
 *Table 2: Results of Model Evaluation*
 
 
+<br>
+<br>
+
 
 | Model        | BRAM      |LUT       |FF     |DSP    |
 |:-------------|:------------------|:------------------|:------------------|:------------------|																	
@@ -161,6 +167,9 @@ The baseline model implementation will give us the required metrics to begin our
 
 *Table 3: Results of Model Evaluation*
 
+
+<br>
+<br>
 
 
 ## CONCLUSION & FUTURE WORK
