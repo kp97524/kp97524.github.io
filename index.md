@@ -102,6 +102,8 @@ The Tensorflow U-Net model was modified as stated above and this model was used 
 
 The baseline model implementation will give us the required metrics to begin our development for optimization. We have considered both software/task performance metrics and computer resource performance metrics for our study. For task performance we shall adopt metrics such as Accuracy, IoU (Intersection over Union) and F1 score. For FPGA implementation, the model was first compiled into a Vivado project using hls4ml by setting the current FPGA to Xilinx xcu250-figd2104-2L-e for virtual simulation. Later, it was synthesized and simulated using Vivado high level synthesis extension (VIVADO HLS) which shall deliver us the usage metrics such as latency, DSP, LUT etc. We believe that the two metrics will present themselves as a trade-off against one another.
 
+<p align="center">
+
 | Test Metrics        | Value      |
 |:-------------|:------------------|
 | Accuracy           | 0.9856 |
@@ -109,6 +111,7 @@ The baseline model implementation will give us the required metrics to begin our
 | Jaccard Index           | 0.9667  |
 
 *Table 1: Results of Evaluation*
+ </p>
 
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true">
@@ -125,10 +128,11 @@ The baseline model implementation will give us the required metrics to begin our
     <em>Fig 5: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation</em>
 </p>
 
-
+<br>
+<br>
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_1.png?raw=true">
- <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_1.png?raw=true">
+ <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/result_2.png?raw=true">
 <br>
     <em>Fig 6: Model evaluation metrics</em>
 </p>
