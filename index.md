@@ -1,5 +1,7 @@
+                                  <h1>
+                                     EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
+                                  </h1>
 
-## EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
 ## INTRODUCTION
 
 Computer Vision is used in  various domains like agriculture, automation systems,  autonomous vehicles, robots, security etc.Tasks like object detection and recognition in CV use ML models which are typically intricate and require significant computing power. Some of these applications which were traditionally cloud based, are now moving to edge computing due to benefits like low power consumption, less latency and better security.Our task is focussed on FPGA simulation of models used for object segmentation by analysis of images from video frames taken from various input sources.
