@@ -1,4 +1,11 @@
 
+## Presentation Slides & Video
+
+[Presentation Slides](https://kp97524.github.io/presentation.pdf)
+
+[![Presentation Video](https://github.com/kp97524/kp97524.github.io/blob/master/front.png?raw=true)](https://user-images.githubusercontent.com/51261477/236054773-15cde6f2-fb2a-4c4d-8da5-79d67536a10b.mp4)
+
+
 ## INTRODUCTION
 
 Computer Vision is used in  various domains like agriculture, automation systems,  autonomous vehicles, robots, security etc.Tasks like object detection and recognition in CV use ML models which are typically intricate and require significant computing power. Some of these applications which were traditionally cloud based, are now moving to edge computing due to benefits like low power consumption, less latency and better security.Our task is focussed on FPGA simulation of models used for object segmentation by analysis of images from video frames taken from various input sources.
@@ -179,14 +186,6 @@ We have observed that Knowledge distillation seems to be an effective way of red
 Hence, Knowledge distillation could be used to learn from more complex models like X-Mem.
 We plan to work on the additional optimization techniques like Auto Quantization and analyse their performance in future.
 
-
-
-
-## RESOURCES
-
-[Presentation Slides](https://kp97524.github.io/presentation.pdf)
-
-[![Presentation Video](https://github.com/kp97524/kp97524.github.io/blob/master/front.png?raw=true)](https://user-images.githubusercontent.com/51261477/236054773-15cde6f2-fb2a-4c4d-8da5-79d67536a10b.mp4)
 
 ## REFERENCES
 
