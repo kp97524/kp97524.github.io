@@ -1,5 +1,5 @@
-##                                  
-## EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
+                             
+# EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
                                   
                                   
 
