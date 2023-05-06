@@ -1,6 +1,7 @@
-                                  <h1 hidden>
+                                  <title>
                                      EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
-                                  </h1>
+                                   </title>  
+                                  
 
 ## INTRODUCTION
 
