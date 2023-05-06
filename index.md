@@ -1,7 +1,3 @@
-                             
-# EFFICIENT FPGA IMPLEMENTATION FOR VISUAL OBJECT SEGMENTATION
-                                  
-                                  
 
 ## INTRODUCTION
 
