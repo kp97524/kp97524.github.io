@@ -47,7 +47,7 @@ Since there are many different state-of-the-art models available for visual obje
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/unet.jpg?raw=true">
 <br>
-    <em>Fig 1: Proposed Solution</em>
+    <em>Fig 2: UNet Model architecture</em>
 </p>
 ## IMPLEMENTATION
 
@@ -58,7 +58,7 @@ The hls4ml (High-Level Synthesis for Machine Learning) [10] library was used to 
 <p align="center">
  <img width="460" height="300" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig1.png?raw=true">
 <br>
-    <em>Fig 2: HLS Model Plot After Conversion</em>
+    <em>Fig 3: HLS Model Plot After Conversion</em>
 </p>
 
 
@@ -87,7 +87,7 @@ Knowledge distillation has been shown to be effective in a wide range of applica
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/kd.png?raw=true">
 <br>
-    <em>Fig 3: Knowledge Distillation</em>
+    <em>Fig 4: Knowledge Distillation</em>
 </p>
 
 
@@ -123,7 +123,7 @@ The baseline model implementation will give us the required metrics to begin our
 <p align="center">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/fig2.png?raw=true">
 <br>
-    <em>Fig 4: Sample predictions from images of DAVIS-2016 with 450k parameters model</em>
+    <em>Fig 5: Sample predictions from images of DAVIS-2016 with 450k parameters model</em>
 </p>
 
 
@@ -133,7 +133,7 @@ The baseline model implementation will give us the required metrics to begin our
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/r2.png?raw=true">
  <img width="auto" height="auto" src="https://github.com/kp97524/kp97524.github.io/blob/master/r3.png?raw=true">
 <br>
-    <em>Fig 5: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation</em>
+    <em>Fig 6: Sample predictions from images of DAVIS-2016 with 21k parameters model with Knowledge Distillation</em>
 </p>
 
 <br>
